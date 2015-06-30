@@ -18,7 +18,6 @@ FilterStore = {
   },
   // Taken from https://github.com/alexmic/filtrr/blob/master/filtrr2/src/effects.js
   _convolve: function _convolve(kernel, pixels, canvasManager) {
-    debugger;
     var temp  = canvasManager.context.createImageData(pixels.width, pixels.height),
         tempd = temp.data,
         bufferData = pixels.data,
