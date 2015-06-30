@@ -120,6 +120,22 @@ FilterStore.addFilter('blur', function blur(pixels, args) {
   return FilterStore._convolve(kernel, pixels, args.canvasManager);
 });
 
+FilterStore.addFilter('invert', function invert(pixels, args) {
+  var r, g, b, value, data;
+  data = pixels.data;
+
+  for (var i=0; i < data.length; i = i + 4) {
+    r = 255 - data[i];
+    g = 255 - data[i+1];
+    b = 255 -data[i+2];
+    data[i] = r;
+    data[i+1] = g;
+    data[i+2] = b;
+  }
+
+  return pixels;
+})
+
 if (module && module.exports) {
   module.exports = FilterStore;
 }
