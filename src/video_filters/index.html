@@ -3,7 +3,7 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title></title>
+      <title>Video Filters</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,12 +12,22 @@
 
       <link rel="stylesheet" href="css/normalize.css">
       <link rel="stylesheet" href="css/main.css">
-      <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-      <h1>Image Filters</h1>
-
-      <script src="js/jquery.js"></script>
-      <script src="js/main.js"></script>
+      <main class="main">
+        <h1>Video Filters</h1>
+        <video id="video" class="video"></video>
+        <canvas id="canvas" class="canvas">
+          Browser without canvas support
+        </canvas>
+        <div id="filters" class="filters">
+          <h2>Filters</h2>
+          <button data-filter="grayscale">Grayscale</button>
+          <button data-filter="sepia">Sepia</button>
+          <button data-filter="posterize">Posterize</button>
+          <button data-filter="blur">Box Blur</button>
+        </div>
+      </main>
+      <script src="js/bundle.js"></script>
     </body>
 </html>
