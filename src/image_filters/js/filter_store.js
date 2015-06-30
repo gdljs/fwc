@@ -56,17 +56,17 @@ FilterStore = {
   }
 };
 
-FilterStore.addFilter('sepia', function sepia(pixels, args) {
-  var r, g, b, value, newR, newG, newB, data;
+FilterStore.addFilter('sepia', function sepia(pixels) {
+  var r, g, b, newR, newG, newB, data;
   data = pixels.data;
 
   for (var i=0; i < data.length; i = i + 4) {
     r = data[i];
     g = data[i+1];
     b = data[i+2];
-    newR = Math.min((r * .393) + (g *.769) + (b * .189), 255);
-    newG = Math.min((r * .349) + (g *.686) + (b * .168), 255);
-    newB = Math.min((r * .272) + (g *.534) + (b * .131), 255);
+    newR = Math.min((r * 0.393) + (g * 0.769) + (b * 0.189), 255);
+    newG = Math.min((r * 0.349) + (g * 0.686) + (b * 0.168), 255);
+    newB = Math.min((r * 0.272) + (g * 0.534) + (b * 0.131), 255);
     data[i] = newR;
     data[i+1] = newG;
     data[i+2] = newB;
@@ -75,8 +75,8 @@ FilterStore.addFilter('sepia', function sepia(pixels, args) {
   return pixels;
 });
 
-FilterStore.addFilter('grayscale', function grayscale(pixels, args) {
-  var r, g, b, value, data;
+FilterStore.addFilter('grayscale', function grayscale(pixels) {
+  var r, g, b, data, value;
   data = pixels.data;
 
   for (var i=0; i < data.length; i = i + 4) {
@@ -91,7 +91,7 @@ FilterStore.addFilter('grayscale', function grayscale(pixels, args) {
 });
 
 FilterStore.addFilter('posterize', function posterize(pixels, args) {
-  var r, g, b, value, step, data;
+  var r, g, b, step, data;
   data = pixels.data;
   args = args || {};
   step = args.step || 5;
@@ -120,8 +120,8 @@ FilterStore.addFilter('blur', function blur(pixels, args) {
   return FilterStore._convolve(kernel, pixels, args.canvasManager);
 });
 
-FilterStore.addFilter('invert', function invert(pixels, args) {
-  var r, g, b, value, data;
+FilterStore.addFilter('invert', function invert(pixels) {
+  var r, g, b, data;
   data = pixels.data;
 
   for (var i=0; i < data.length; i = i + 4) {
@@ -134,7 +134,7 @@ FilterStore.addFilter('invert', function invert(pixels, args) {
   }
 
   return pixels;
-})
+});
 
 if (module && module.exports) {
   module.exports = FilterStore;
