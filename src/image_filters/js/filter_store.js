@@ -136,6 +136,17 @@ FilterStore.addFilter('invert', function invert(pixels) {
   return pixels;
 });
 
+FilterStore.addFilter('sharpen', function sharpen(pixels, args) {
+  var kernel;
+  kernel = [
+    [0, -1, 0 ],
+    [-1, 5, -1],
+    [0, -1, 0 ]
+  ];
+
+  return FilterStore._convolve(kernel, pixels, args.canvasManager);
+});
+
 if (module && module.exports) {
   module.exports = FilterStore;
 }
