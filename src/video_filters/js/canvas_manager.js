@@ -21,6 +21,9 @@ CanvasManager.prototype = {
     this.canvas.height = this.height;
     this.canvas.width = this.width;
   },
+  getContext: function getContext() {
+    return this.context;
+  },
   loadImageFile: function loadImage(file) {
     var fileReader, manager;
 

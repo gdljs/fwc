@@ -1,0 +1,14 @@
+.main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+.video {
+  position:absolute;
+  visibility:hidden;
+}
